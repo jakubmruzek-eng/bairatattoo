@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-shop | Baira Tattoo</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            400: '#D4AF37',
+                            500: '#AA8C2C',
+                        },
+                        dark: '#0a0a0a',
+                        darker: '#050505',
+                        surface: '#121212'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            visibility: hidden;
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, visibility, transform;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: none;
+            visibility: visible;
+        }
+        
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2a2a2a;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #D4AF37;
+        }
+
+        * {
+            -webkit-tap-highlight-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-dark text-gray-300 font-sans antialiased overflow-x-hidden selection:bg-gold-400 selection:text-dark relative min-h-screen flex flex-col justify-between">
+
+    <!-- Coming Soon Overlay přes celou stránku -->
+    <div class="absolute inset-0 z-40 pointer-events-none flex items-center justify-center overflow-hidden">
+        <div class="bg-dark/85 backdrop-blur-sm border-y border-gold-400/40 w-full py-12 transform -rotate-6 shadow-2xl flex items-center justify-center">
+            <span class="text-gold-400 font-serif tracking-[0.3em] uppercase text-4xl md:text-6xl lg:text-7xl font-bold text-center px-4 drop-shadow-[0_5px_15px_rgba(212,175,55,0.3)]">
+                Coming Soon
+            </span>
+        </div>
+    </div>
+
+    <div>
+        <!-- Navigation -->
+        <nav class="fixed w-full z-50 bg-dark/95 backdrop-blur-md border-b border-white/5 transition-all duration-300" id="navbar">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-40">
+                    <div class="flex-shrink-0 flex items-center py-2">
+                        <a href="index.html" class="flex items-center">
+                            <img src="IMG_4493.png" alt="Baira Tattoo Logo" style="height: 220px; width: auto; max-width: none;" class="object-contain">
+                        </a>
+                    </div>
+                    
+                    <div class="hidden md:flex space-x-10 items-center">
+                        <a href="index.html" class="text-gray-400 hover:text-gold-400 transition-colors text-sm uppercase tracking-[0.15em]">Home</a>
+                        <a href="index.html#about" class="text-gray-400 hover:text-gold-400 transition-colors text-sm uppercase tracking-[0.15em]">About</a>
+                        <a href="index.html#portfolio" class="text-gray-400 hover:text-gold-400 transition-colors text-sm uppercase tracking-[0.15em]">Portfolio</a>
+                        <a href="eshop.html" class="text-gold-400 transition-colors text-sm uppercase tracking-[0.15em]">E-shop</a>
+                        <a href="index.html#booking" class="text-gray-400 hover:text-gold-400 transition-colors text-sm uppercase tracking-[0.15em]">Booking</a>
+                    </div>
+
+                    <div class="md:hidden flex items-center">
+                        <button id="mobile-menu-button" class="text-gray-300 hover:text-gold-400 focus:outline-none p-2">
+                            <i class="fas fa-bars text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="mobile-menu" class="hidden md:hidden bg-darker border-b border-white/5 absolute w-full shadow-2xl">
+                <div class="px-4 pt-4 pb-6 space-y-2">
+                    <a href="index.html" class="mobile-link block px-3 py-3 text-sm font-medium text-gray-300 hover:text-gold-400 hover:bg-white/5 rounded-md uppercase tracking-widest text-center transition-colors">Home</a>
+                    <a href="index.html#about" class="mobile-link block px-3 py-3 text-sm font-medium text-gray-300 hover:text-gold-400 hover:bg-white/5 rounded-md uppercase tracking-widest text-center transition-colors">About</a>
+                    <a href="index.html#portfolio" class="mobile-link block px-3 py-3 text-sm font-medium text-gray-300 hover:text-gold-400 hover:bg-white/5 rounded-md uppercase tracking-widest text-center transition-colors">Portfolio</a>
+                    <a href="eshop.html" class="mobile-link block px-3 py-3 text-sm font-medium text-gray-300 hover:text-gold-400 hover:bg-white/5 rounded-md uppercase tracking-widest text-center transition-colors">E-shop</a>
+                    <a href="index.html#booking" class="mobile-link block px-3 py-3 text-sm font-medium text-gray-300 hover:text-gold-400 hover:bg-white/5 rounded-md uppercase tracking-widest text-center transition-colors">Booking</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Shop Header -->
+        <header class="pt-56 pb-16 text-center px-4 bg-darker border-b border-white/5 opacity-50">
+            <div class="max-w-3xl mx-auto fade-in-section is-visible">
+                <span class="inline-block py-1 px-3 border border-gold-400/30 rounded-full text-gold-400 font-sans tracking-[0.2em] uppercase text-xs mb-4 bg-dark/50">
+                    Official Aftercare
+                </span>
+                <h1 class="text-4xl md:text-6xl font-serif text-white mb-4">Tattoo Care E-shop</h1>
+                <p class="text-gray-400 font-light text-lg">
+                    Professional creams and balms to keep your tattoos vibrant, healthy, and perfectly healed.
+                </p>
+            </div>
+        </header>
+
+        <!-- Products Section -->
+        <section class="py-24 bg-dark opacity-40">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
+                    
+                    <!-- Product 1 -->
+                    <div class="bg-surface p-8 border border-white/5 relative group fade-in-section flex flex-col justify-between">
+                        <div class="absolute top-0 right-0 w-12 h-12 border-t border-r border-gold-400/30"></div>
+                        <div>
+                            <div class="w-full aspect-[4/3] bg-darker mb-6 overflow-hidden flex items-center justify-center border border-white/5">
+                                <img src="https://placehold.co/500x400/121212/D4AF37?text=Aftercare+Balm" alt="Baira Aftercare Balm" class="w-full h-full object-cover opacity-80">
+                            </div>
+                            <span class="text-gold-400 text-xs uppercase tracking-widest block mb-2">Healing & Protection</span>
+                            <h4 class="text-2xl font-serif text-white mb-3">Baira Premium Tattoo Balm</h4>
+                            <p class="text-gray-400 text-sm font-light mb-6 leading-relaxed">
+                                Natural organic balm enriched with vitamins and essential oils. Speeds up skin regeneration, keeps colors bright, and deeply hydrates.
+                            </p>
+                        </div>
+                        <div class="flex items-center justify-between pt-4 border-t border-white/5">
+                            <span class="text-xl font-serif text-white">€24.00</span>
+                            <span class="inline-flex items-center space-x-2 text-xs uppercase tracking-widest text-gold-400 py-2 px-4 border border-gold-400/50">
+                                <i class="fas fa-shopping-bag"></i>
+                                <span>Order in Studio</span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="bg-surface p-8 border border-white/5 relative group fade-in-section flex flex-col justify-between">
+                        <div class="absolute top-0 right-0 w-12 h-12 border-t border-r border-gold-400/30"></div>
+                        <div>
+                            <div class="w-full aspect-[4/3] bg-darker mb-6 overflow-hidden flex items-center justify-center border border-white/5">
+                                <img src="https://placehold.co/500x400/121212/D4AF37?text=Aftercare+Lotion" alt="Daily Care Lotion" class="w-full h-full object-cover opacity-80">
+                            </div>
+                            <span class="text-gold-400 text-xs uppercase tracking-widest block mb-2">Daily Maintenance</span>
+                            <h4 class="text-2xl font-serif text-white mb-3">Soothing Aftercare Lotion</h4>
+                            <p class="text-gray-400 text-sm font-light mb-6 leading-relaxed">
+                                Lightweight formula designed for daily use on healed or healing tattoos. Non-greasy texture with soothing ingredients to prevent dryness.
+                            </p>
+                        </div>
+                        <div class="flex items-center justify-between pt-4 border-t border-white/5">
+                            <span class="text-xl font-serif text-white">€19.50</span>
+                            <span class="inline-flex items-center space-x-2 text-xs uppercase tracking-widest text-gold-400 py-2 px-4 border border-gold-400/50">
+                                <i class="fas fa-shopping-bag"></i>
+                                <span>Order in Studio</span>
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-darker py-10 border-t border-white/5 relative z-30">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-4 md:mb-0 text-center md:text-left">
+                <a href="index.html" class="flex items-center justify-center md:justify-start">
+                    <img src="IMG_4493.png" alt="Baira Tattoo Logo" style="height: 100px; width: auto;" class="object-contain">
+                </a>
+                <p class="text-gray-600 text-xs font-light mt-2 uppercase tracking-widest">
+                    &copy; 2026 Baira Tattoo. All rights reserved.
+                </p>
+            </div>
+            
+            <div class="flex space-x-6 text-gray-600 text-sm font-light">
+                <a href="#" class="hover:text-gold-400 transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-gold-400 transition-colors">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        const menuIcon = mobileMenuButton.querySelector('i');
+
+        const toggleMenu = () => {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            if (isHidden) {
+                mobileMenu.classList.remove('hidden');
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-times', 'text-gold-400');
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('fa-times', 'text-gold-400');
+                menuIcon.classList.add('fa-bars');
+            }
+        };
+
+        mobileMenuButton.addEventListener('click', toggleMenu);
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (!mobileMenu.classList.contains('hidden')) {
+                    toggleMenu();
+                }
+            });
+        });
+
+        const fadeElements = document.querySelectorAll('.fade-in-section');
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const scrollObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        fadeElements.forEach(element => {
+            scrollObserver.observe(element);
+        });
+    </script>
+</body>
+</html>
