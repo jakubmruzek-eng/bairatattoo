@@ -277,7 +277,7 @@
                     </div>
                     <h3 class="text-4xl md:text-5xl font-serif text-white mb-8">Book an Appointment</h3>
                     <p class="text-gray-400 font-light mb-12 text-lg leading-relaxed">
-                        Have a tattoo idea? Fill out the form, describe your vision, attach a reference photo, and Bára will receive it directly in her inbox.
+                        Have a tattoo idea? Fill out the form, describe your vision, and Bára will receive it directly in her inbox.
                     </p>
 
                     <div class="space-y-8">
@@ -324,7 +324,7 @@
                     <div class="bg-surface p-8 sm:p-12 relative h-full flex flex-col justify-center">
                         <div class="absolute top-0 right-0 w-16 h-16 border-t-2 border-r-2 border-gold-400/50"></div>
                         
-                        <form action="https://formspree.io/f/xdeuoroo" method="POST" enctype="multipart/form-data" class="space-y-6 relative z-10 w-full">
+                        <form action="https://formspree.io/f/xdeaoroo" method="POST" class="space-y-6 relative z-10 w-full">
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                 <div class="relative">
                                     <input type="text" name="name" required class="block w-full bg-transparent border-0 border-b border-gray-700 py-3 text-white focus:outline-none focus:ring-0 focus:border-gold-400 transition-colors peer placeholder-transparent" placeholder="Name">
@@ -350,18 +350,6 @@
                             <div class="relative pt-2">
                                 <textarea name="message" required rows="3" class="block w-full bg-transparent border-0 border-b border-gray-700 py-3 text-white focus:outline-none focus:ring-0 focus:border-gold-400 transition-colors peer placeholder-transparent resize-none" placeholder="Description"></textarea>
                                 <label class="absolute left-0 top-5 text-gray-500 text-sm transition-all peer-focus:-top-2 peer-focus:text-xs peer-focus:text-gold-400 peer-valid:-top-2 peer-valid:text-xs uppercase tracking-widest pointer-events-none">Describe your idea in detail</label>
-                            </div>
-
-                            <!-- Vlastní stylovaný input v AJ s dynamickým názvem souboru -->
-                            <div class="pt-2">
-                                <label class="block text-xs uppercase tracking-widest text-gray-400 mb-2">Attach reference photo / design (optional)</label>
-                                <div class="flex items-center border border-gray-800 bg-darker p-2">
-                                    <label class="cursor-pointer bg-gold-400 hover:bg-gold-500 text-dark text-xs uppercase tracking-widest py-2 px-4 transition-colors font-medium flex-shrink-0">
-                                        Choose File
-                                        <input type="file" name="attachment" accept="image/*" id="file-upload" class="hidden">
-                                    </label>
-                                    <span id="file-chosen" class="ml-4 text-sm text-gray-400 truncate">No file chosen</span>
-                                </div>
                             </div>
 
                             <div class="pt-4">
@@ -450,20 +438,6 @@
 
         fadeElements.forEach(element => {
             scrollObserver.observe(element);
-        });
-
-        // Skript pro zobrazení názvu vybraného souboru v AJ
-        const actualBtn = document.getElementById('file-upload');
-        const fileChosen = document.getElementById('file-chosen');
-
-        actualBtn.addEventListener('change', function(){
-            if (this.files && this.files.length > 0) {
-                fileChosen.textContent = this.files[0].name;
-                fileChosen.style.color = '#fff';
-            } else {
-                fileChosen.textContent = 'No file chosen';
-                fileChosen.style.color = '';
-            }
         });
     </script>
 </body>
